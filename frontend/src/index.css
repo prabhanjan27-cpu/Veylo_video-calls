@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+.chat-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #c9e8c9, #b7e7bb);
+    height: calc(100vh - 4rem);
+    height: calc(100dvh - 4rem);
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.chat-panel {
+    max-width: 1200px;
+    width: 80%;
+    height: 90%;
+    margin: 0 auto !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.chat-panel > .str-chat,
+.chat-panel .str-chat__channel {
+    height: 100%;
+}
+
+.chat-conversation {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+.chat-conversation .str-chat__channel-header {
+    grid-template-columns: max-content minmax(0, 1fr);
+    justify-items: stretch;
+}
+
+.chat-conversation .str-chat__channel-header__start {
+    display: none;
+}
+
+.chat-conversation .str-chat__channel-header__end {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.chat-conversation .str-chat__channel-header__data {
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-start;
+    justify-self: start;
+    margin-left: 0.75rem;
+    text-align: left;
+}
+
+.chat-panel.thread-open .str-chat__channel {
+    flex-direction: row;
+}
+
+.chat-panel.thread-open .chat-conversation {
+    width: 0;
+}
+
+.chat-panel .str-chat__thread-container {
+    flex: 0 0 360px;
+    width: 360px;
+    min-width: 0;
+}
+
+.thread-close {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0.5rem;
+}
+
+.str-chat__list {
+    background-color: #ffffff;
+    padding: 12px;
+}
+
+.str-chat__list-notifications {
+    display: none;
+}
+
+.str-chat__message-composer-container {
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .chat-page {
+        padding: 0.75rem;
+    }
+
+    .chat-panel {
+        width: 100%;
+        height: 100%;
+    }
+
+    .chat-panel .str-chat__thread-container {
+        flex-basis: 45%;
+        width: 45%;
+    }
+}
+
+.call-page {
+    height: 100vh;
+    height: 100dvh;
+}
